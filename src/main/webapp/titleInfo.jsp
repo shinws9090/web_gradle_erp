@@ -16,18 +16,18 @@
 			
 				<li>
 					<label for="tno">직책번호 : </label>
-					<label for="tno">${title.no }</label>
-					<input type="hidden" name="tno" size="20" id="tno" value="${title.no }" required>
+					<label for="tno">${title.titleNo }</label>
+					<input type="hidden" name="tno" size="20" id="tno" value="${title.titleNo }" required>
 				</li>
 				<li>
 					<label for="tname">직책이름</label>
-					<input type="text" name="tname" size="20" id="tname" value="${title.name }">
+					<input type="text" name="tname" size="20" id="tname" value="${title.titleName }">
 				<li>
 					<input type="submit" value="수정">
 				<%--<a href="titleUpdate.jsp?no=${title.no}&name=${title.name}">직책수정</a> --%>
 				</li>
 				<li>
-					<a href="TitleDeleteServlet?tno=${title.no }">직책삭제</a>
+					<a href="TitleDeleteServlet?tno=${title.titleName }">직책삭제</a>
 				</li>
 			</ul>
 		</fieldset>

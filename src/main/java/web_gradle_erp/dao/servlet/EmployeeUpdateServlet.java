@@ -26,6 +26,16 @@ public class EmployeeUpdateServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		service.modifyEmployee(getEmployee(request,response));
+//		request.getRequestDispatcher("TitleServlet").forward(request, response);
+		response.sendRedirect("EmployeeServlet");
+		
+	}
+
+	private Employee getEmployee(HttpServletRequest request, HttpServletResponse response) {
+		
 		int empno = Integer.parseInt(request.getParameter("empno"));
 		String empname = request.getParameter("empname");
 		Title title = new Title(Integer.parseInt(request.getParameter("title")));
@@ -41,11 +51,7 @@ public class EmployeeUpdateServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		Employee emp = new Employee(empno, empname, title, manager, salary, dept, hireDate);
-		service.modifyEmployee(emp);
-//		request.getRequestDispatcher("TitleServlet").forward(request, response);
-		response.sendRedirect("EmployeeServlet");
-		
+		return new Employee(empno, empname, title, manager, salary, dept, hireDate);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

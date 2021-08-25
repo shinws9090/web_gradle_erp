@@ -23,13 +23,19 @@ if (pagefile == null) {
 <body class="article-list table-common con">
 	<c:out value="${con }"></c:out>
 	<br>
-	<div class="a">
+	  <label for="menu-button" class="menu-button--label">▤</label>
+
+    <!--    Checkbox state controls the menu position. When it is checked the menu slides in-->
+    <input type="checkbox" id="menu-button">
+	<div class="menu-wrap">
+        <div class="side-menu">
 		<h3>ERP</h3>
-		<ul>
-			<li><a href="TitleServlet">직책관리</a></li>
-			<li><a href="DepartmentServlet">부서관리</a></li>
-			<li><a href="EmployeeServlet">사원갈리리리</a></li>
+		 <ul class="side-menu--list">
+			<li><a class="subset">직책관리</a><a href="TitleServlet">직책리스트</a></li>
+			<li><a class="subset">부서관리</a><a href="DepartmentServlet">부서리스트</a></li>
+			<li><a class="subset">사원갈리리리</a><a href="EmployeeServlet">사원리스트</a></li>
 		</ul>
+	</div>
 	</div>
 	<jsp:include page='<%=pagefile%>' />
 	
